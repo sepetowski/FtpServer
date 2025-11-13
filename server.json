@@ -1,0 +1,10 @@
+{
+  "root": "C:/ftp_root",
+  "bind": "0.0.0.0",
+  "controlPort": 21,
+  "pasvMin": 50000,
+  "pasvMax": 50100,
+  "preLoginIdleSeconds": 120,
+  "postLoginIdleSeconds": 300,
+  "allowAnonymous": true
+}
