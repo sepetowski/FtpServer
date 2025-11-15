@@ -149,6 +149,7 @@ namespace FtpServer.Ftp
                         await HandleSyst(writer);
                         break;
 
+
                     // file type - only binary supported
                     case "TYPE":
                         await HandleType(arg, writer);
@@ -630,10 +631,9 @@ namespace FtpServer.Ftp
 
         private async Task HandleFeat(StreamWriter writer)
         {
-            _logger.LogTrace("FEAT command received - reporting supported features: PASV, UTF8");
+            _logger.LogTrace("FEAT command received - reporting supported features: PASV");
             await writer.WriteLineAsync("211-Features");
             await writer.WriteLineAsync(" PASV");
-            await writer.WriteLineAsync(" UTF8");
             await writer.WriteLineAsync("211 End");
         }
 
@@ -684,7 +684,6 @@ namespace FtpServer.Ftp
             _logger.LogWarning("Unknown or unsupported FTP command: {cmd} (argument=\"{arg}\")", cmd, arg);
             await writer.WriteLineAsync("502 Command not implemented");
         }
-
 
 
         private static (string cmd, string arg) ParseCommand(string line)

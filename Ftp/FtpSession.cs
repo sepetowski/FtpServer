@@ -13,7 +13,6 @@ namespace FtpServer.Ftp
         public bool LoggedIn { get; set; }
         public string PendingUser { get; set; } = "";
         public string UserName { get; set; } = "";
-        public bool IsAnonymous => string.Equals(UserName, "anonymous", StringComparison.OrdinalIgnoreCase);
 
         public string RootPath { get; private set; }
         private string CurrentRel = "/";
